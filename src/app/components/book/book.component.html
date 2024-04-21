@@ -1,0 +1,18 @@
+<div *ngIf="book">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ book.title }}</mat-card-title>
+      <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Язык:</strong> {{ book.language }}</p>
+      <p><strong>Страниц:</strong> {{ book.pages }}</p>
+      <p><strong>Описание:</strong> {{ book.description }}</p>
+      <p><strong>Жанр:</strong> {{ book.genre }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editBook(book)">Редактировать</button>
+      <button mat-button color="warn" (click)="deleteBook(book)">Удалить</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
