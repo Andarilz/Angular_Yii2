@@ -16,6 +16,7 @@ import { CreateBookComponent } from './components/create-book/create-book.compon
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {FormsModule} from "@angular/forms";
+import { CreateAuthorComponent } from './components/create-author/create-author.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {FormsModule} from "@angular/forms";
     AuthorsListComponent,
     AuthorComponent,
     NavComponent,
-    CreateBookComponent
+    CreateBookComponent,
+    CreateAuthorComponent
   ],
   imports: [
     BrowserModule,
