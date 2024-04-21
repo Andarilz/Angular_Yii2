@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {Book} from "../../Interfaces/Book";
 
 @Component({
   selector: 'app-books-list',
@@ -29,13 +30,3 @@ export class BooksListComponent {
 
 }
 
-// Интерфейс книги
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-  language: string;
-  pages: number;
-  description: string;
-  genre: string;
-}
