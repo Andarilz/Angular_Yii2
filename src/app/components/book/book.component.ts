@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Book} from "../../Interfaces/Book";
 
 
@@ -12,15 +12,14 @@ export class BookComponent implements OnInit {
 
   book: Book = { id: 1, title: 'Book 1', author: 'Author 1', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' };
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   // Метод редактирования книги
   editBook(book: Book) {
-
-    console.log('Editing book:', book);
+    this.router.navigate(['/edit_book', book.id]);
   }
 
   // Метод удаления книги

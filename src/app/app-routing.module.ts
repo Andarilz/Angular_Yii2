@@ -13,7 +13,9 @@ const routes: Routes = [
   {path: "authors", component :AuthorsListComponent},
   {path: "author/:id", component: AuthorComponent},
   {path: "create_book", component: CreateBookComponent},
-  {path: "create_author", component: CreateAuthorComponent}
+  {path: "create_author", component: CreateAuthorComponent},
+  {path: "edit_book/:id", component: CreateBookComponent},
+  {path: "edit_author/:id", component: CreateAuthorComponent},
 ];
 
 @NgModule({

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {Book} from "../../Interfaces/Book";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Author} from "../../Interfaces/Author";
 
 @Component({
@@ -11,15 +10,14 @@ import {Author} from "../../Interfaces/Author";
 export class AuthorComponent {
   author: Author = { id: 1, name: 'Author 1', books:  'Book1', country: 'England', birth_year: 1900 };
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
   // Метод редактирования книги
   editAuthor(author: Author) {
-
-    console.log('Editing book:', author);
+    this.router.navigate(['/edit_author', author.id]);
   }
 
   // Метод удаления книги

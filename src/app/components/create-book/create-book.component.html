@@ -2,7 +2,10 @@
 <div class="create-book-container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Создание новой книги</mat-card-title>
+      <mat-card-title *ngIf="!book.id; else editBook">Создание новой книги</mat-card-title>
+      <ng-template #editBook>
+        <mat-card-title>Редактирование книги</mat-card-title>
+      </ng-template>
     </mat-card-header>
     <mat-card-content>
       <form>
@@ -24,7 +27,10 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="createBook()">Создать книгу</button>
+      <button mat-raised-button color="primary" (click)="createBook()" *ngIf="!book.id; else EditBookAdd">Создать книгу</button>
+      <ng-template #EditBookAdd>
+        <button mat-raised-button color="primary" (click)="createBook()">Редактировать книгу</button>
+      </ng-template>
     </mat-card-actions>
   </mat-card>
 </div>

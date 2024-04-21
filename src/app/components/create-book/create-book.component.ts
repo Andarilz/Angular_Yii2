@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Book} from "../../Interfaces/Book";
+import {ActivatedRoute, Route} from "@angular/router";
 
 @Component({
   selector: 'app-create-book',
   templateUrl: './create-book.component.html',
   styleUrls: ['./create-book.component.scss']
 })
-export class CreateBookComponent {
+export class CreateBookComponent implements OnInit{
   book: Book = {
-    id: 0,
+    id: null,
     title: '',
     author: '',
     language: '',
@@ -16,6 +17,17 @@ export class CreateBookComponent {
     description: '',
     genre: ''
   };
+
+  constructor(public route: ActivatedRoute) {
+
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.book.id = params['id'];
+    });
+  }
+
 
   createBook() {
     console.log(this.book);
