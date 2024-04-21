@@ -12,6 +12,11 @@ import { BookComponent } from './components/book/book.component';
 import { AuthorsListComponent } from './components/authors-list/authors-list.component';
 import { AuthorComponent } from './components/author/author.component';
 import { NavComponent } from './components/nav/nav.component';
+import { CreateBookComponent } from './components/create-book/create-book.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -20,14 +25,18 @@ import { NavComponent } from './components/nav/nav.component';
     BookComponent,
     AuthorsListComponent,
     AuthorComponent,
-    NavComponent
+    NavComponent,
+    CreateBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

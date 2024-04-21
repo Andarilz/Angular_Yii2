@@ -1,0 +1,30 @@
+<!-- create-book.component.html -->
+<div class="create-book-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Создание новой книги</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Название книги" [(ngModel)]="book.title" name="title" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Автор" [(ngModel)]="book.author" name="author" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Язык" [(ngModel)]="book.language" name="language" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Число страниц" [(ngModel)]="book.pages" name="pages" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Описание" [(ngModel)]="book.description" name="description" required></textarea>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="createBook()">Создать книгу</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
