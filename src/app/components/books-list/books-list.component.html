@@ -1,0 +1,38 @@
+
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="books">
+    <!-- Название книг -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Название </th>
+      <td mat-cell *matCellDef="let book" (click)="redirectToBookDetail(book.id)" class="title"> {{ book.title }} </td>
+    </ng-container>
+
+    <!-- Имя автора книги -->
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef> Автор </th>
+      <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+    </ng-container>
+
+    <!-- Язык книги -->
+    <ng-container matColumnDef="language">
+      <th mat-header-cell *matHeaderCellDef> Язык </th>
+      <td mat-cell *matCellDef="let book"> {{ book.language }} </td>
+    </ng-container>
+
+    <!-- Количество страниц в книге -->
+    <ng-container matColumnDef="pages">
+      <th mat-header-cell *matHeaderCellDef> Страниц </th>
+      <td mat-cell *matCellDef="let book"> {{ book.pages }} </td>
+    </ng-container>
+
+    <!-- Детальная информация о книге -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Описание </th>
+      <td mat-cell *matCellDef="let book"> {{ book.description }} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
