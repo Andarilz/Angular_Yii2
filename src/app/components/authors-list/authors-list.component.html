@@ -3,13 +3,13 @@
     <!-- Имя автора -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Имя </th>
-      <td mat-cell *matCellDef="let author" (click)="redirectToBookDetail(author.id)" class="title"> {{ author.name }} </td>
+      <td mat-cell *matCellDef="let author" (click)="redirectToAuthorDetail(author.id)" class="title"> {{ author.name }} </td>
     </ng-container>
 
     <!-- Год рождения автора -->
     <ng-container matColumnDef="borth_year">
       <th mat-header-cell *matHeaderCellDef> Год рождения </th>
-      <td mat-cell *matCellDef="let author"> {{ author.borth_year }} </td>
+      <td mat-cell *matCellDef="let author"> {{ author.birth_year }} </td>
     </ng-container>
 
     <!-- Страна автора-->

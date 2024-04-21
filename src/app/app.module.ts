@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BookComponent } from './components/book/book.component';
 import { AuthorsListComponent } from './components/authors-list/authors-list.component';
+import { AuthorComponent } from './components/author/author.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksListComponent,
     BookComponent,
-    AuthorsListComponent
+    AuthorsListComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
