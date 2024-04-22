@@ -33,7 +33,10 @@ export class BookComponent implements OnInit {
 
   // Метод удаления книги
   deleteBook(book: Book) {
-    console.log('Deleting book:', book);
+    this.ApiHttpService.deleteBook(book).subscribe(() => {
+      this.router.navigate(['']);
+    });
+
   }
 
 }

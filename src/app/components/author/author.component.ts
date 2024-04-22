@@ -29,9 +29,4 @@ export class AuthorComponent {
     this.router.navigate(['/edit_author', author.id]);
   }
 
-  // Метод удаления книги
-  deleteAuthor(author: Author) {
-
-    console.log('Deleting book:', author);
-  }
 }

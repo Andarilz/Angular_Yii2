@@ -17,6 +17,10 @@ export class BooksListComponent implements OnInit{
   books: Book[] = [];
 
   ngOnInit(): void {
+    this.getBooks()
+  }
+
+  getBooks(){
     this.apiService.getBooks().subscribe(books => {
       this.books = books;
     });
@@ -34,7 +38,9 @@ export class BooksListComponent implements OnInit{
   }
 
   deleteBook(book: Book){
-    console.log(book.id)
+    this.apiService.deleteBook(book).subscribe(() => {
+      this.getBooks()
+    });
   }
 
 }
