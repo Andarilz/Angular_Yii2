@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from "../../Interfaces/Book";
-import {ActivatedRoute, Route} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
+import {ApiHttpService} from "../../api-http.service";
+import {Author} from "../../Interfaces/Author";
 
 @Component({
   selector: 'app-create-book',
@@ -10,6 +12,7 @@ import {ActivatedRoute, Route} from "@angular/router";
 export class CreateBookComponent implements OnInit{
   book: Book = {
     id: null,
+    author_id: '',
     title: '',
     language: '',
     pages: 0,
@@ -17,7 +20,13 @@ export class CreateBookComponent implements OnInit{
     genre: ''
   };
 
-  constructor(public route: ActivatedRoute) {
+  authors: Author[] = [];
+
+  errors: { [key: string]: string[] } = {};
+
+  selectedAuthorId = '';
+
+  constructor(public route: ActivatedRoute, public ApiHttpService: ApiHttpService, public router: Router) {
 
   }
 
@@ -25,10 +34,22 @@ export class CreateBookComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.book.id = params['id'];
     });
+    this.ApiHttpService.getAuthors().subscribe(authors => {
+      this.authors = authors;
+    })
   }
 
+  getErrorKeys() {
+    return Object.keys(this.errors);
+  }
 
   createBook() {
-    console.log(this.book);
+    this.ApiHttpService.createBook({...this.book, author_id: this.selectedAuthorId}).subscribe(response => {
+      if(response.errors){
+        this.errors = response.errors
+      } else {
+        this.router.navigate(['']);
+      }
+    });
   }
 }

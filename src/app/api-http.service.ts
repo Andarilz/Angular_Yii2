@@ -30,4 +30,8 @@ export class ApiHttpService {
   createAuthor(author: Author): Observable<any>{
     return this.http.post('http://localhost:8080/authors', author);
   }
+
+  createBook(book: Book): Observable<any>{
+    return this.http.post('http://localhost:8080/books', book);
+  }
 }

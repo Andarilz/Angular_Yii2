@@ -13,8 +13,12 @@
           <input matInput placeholder="Название книги" [(ngModel)]="book.title" name="title" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Автор" [(ngModel)]="book.author_id" name="author" required>
+          <mat-label>Выберите автора</mat-label>
+          <mat-select [(ngModel)]="selectedAuthorId" name="authorId">
+            <mat-option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</mat-option>
+          </mat-select>
         </mat-form-field>
+
         <mat-form-field class="full-width">
           <input matInput placeholder="Язык" [(ngModel)]="book.language" name="language" required>
         </mat-form-field>
@@ -22,10 +26,24 @@
           <input matInput type="number" placeholder="Число страниц" [(ngModel)]="book.pages" name="pages" required>
         </mat-form-field>
         <mat-form-field class="full-width">
+          <input matInput type="text" placeholder="Жанр" [(ngModel)]="book.genre" name="pages" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
           <textarea matInput placeholder="Описание" [(ngModel)]="book.description" name="description" required></textarea>
         </mat-form-field>
       </form>
     </mat-card-content>
+    <div *ngIf="errors">
+      <ul>
+        <!-- Перебираем ключи (поля) массива ошибок -->
+        <li *ngFor="let field of getErrorKeys()">
+          <!-- Перебираем сообщения об ошибках для каждого поля -->
+          <p *ngFor="let message of errors[field]" style="color: red">
+            {{ message }}
+          </p>
+        </li>
+      </ul>
+    </div>
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="createBook()" *ngIf="!book.id; else EditBookAdd">Создать книгу</button>
       <ng-template #EditBookAdd>

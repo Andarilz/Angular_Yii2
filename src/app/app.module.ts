@@ -18,6 +18,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {FormsModule} from "@angular/forms";
 import { CreateAuthorComponent } from './components/create-author/create-author.component';
 import {HttpClientModule} from "@angular/common/http";
+import { MatSelectModule } from '@angular/material/select';
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {NoopAnimationPlayer} from "@angular/animations";
+
 
 
 @NgModule({
@@ -40,7 +44,10 @@ import {HttpClientModule} from "@angular/common/http";
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
