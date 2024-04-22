@@ -1,25 +1,26 @@
 
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Book} from "../../Interfaces/Book";
+import {ApiHttpService} from "../../api-http.service";
 
 @Component({
   selector: 'app-books-list',
   templateUrl: './books-list.component.html',
   styleUrls: ['./books-list.component.scss']
 })
-export class BooksListComponent {
+export class BooksListComponent implements OnInit{
 
   //конструктор с dependency injection
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router, public apiService: ApiHttpService) {}
 
-  //Данные для таблицы книг
-  books: Book[] = [
-    { id: 1, title: 'Book 1', author: {id: 1, name: "Test", country: 'bl', birth_year: 2014}, language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' },
-    { id: 2, title: 'Book 2', author: {id: 1, name: "Test", country: 'bl', birth_year: 2014}, language: 'Spanish', pages: 250, description: 'Description 2', genre: 'detective' },
-    { id: 3, title: 'Book 3', author: {id: 1, name: "Test", country: 'bl', birth_year: 2014}, language: 'French',  pages: 180, description: 'Description 3', genre: 'dramatic' }
-  ];
+  books: Book[] = [];
+
+  ngOnInit(): void {
+    this.apiService.getBooks().subscribe(books => {
+      this.books = books;
+    });
+  }
 
 
   displayedColumns: string[] = ['title', 'author', 'language', 'pages', 'description', 'genre'];
