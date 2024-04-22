@@ -3,7 +3,8 @@ import {Author} from "./Author";
 export interface Book {
   id: number | null;
   title: string;
-  author?: Author;
+  author_name?: '';
+  author_id?: '',
   language: string;
   pages: number;
   description: string;

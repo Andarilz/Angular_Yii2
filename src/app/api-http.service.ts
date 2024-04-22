@@ -15,6 +15,10 @@ export class ApiHttpService {
    return this.http.get<Book[]>('http://localhost:8080/books');
   }
 
+  getBook(id: string): Observable<Book> {
+    return this.http.get<Book>(`http://localhost:8080/books/${id}`);
+  }
+
   getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>('http://localhost:8080/authors');
   }

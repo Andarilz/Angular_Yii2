@@ -11,7 +11,6 @@ export class CreateBookComponent implements OnInit{
   book: Book = {
     id: null,
     title: '',
-    author: {id: null, name: '', country: '', birth_year: 0},
     language: '',
     pages: 0,
     description: '',

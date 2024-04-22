@@ -23,7 +23,7 @@ export class BooksListComponent implements OnInit{
   }
 
 
-  displayedColumns: string[] = ['title', 'author', 'language', 'pages', 'description', 'genre'];
+  displayedColumns: string[] = ['title', 'author_name', 'language', 'pages', 'description', 'genre'];
 
   redirectToBookDetail(bookId: string) {
     this.router.navigate(['/book', bookId]);
