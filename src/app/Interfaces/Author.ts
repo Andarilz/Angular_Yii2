@@ -5,5 +5,5 @@ export interface Author {
   name: string;
   books?: Book[];
   country: string;
-  birth_year: number;
+  birth_year: number | null;
 }

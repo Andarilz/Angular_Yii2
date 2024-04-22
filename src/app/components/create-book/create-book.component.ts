@@ -26,6 +26,8 @@ export class CreateBookComponent implements OnInit{
 
   selectedAuthorId = '';
 
+  createOrUpdate: boolean = false;
+
   constructor(public route: ActivatedRoute, public ApiHttpService: ApiHttpService, public router: Router) {
 
   }
@@ -36,6 +38,7 @@ export class CreateBookComponent implements OnInit{
     });
     this.ApiHttpService.getAuthors().subscribe(authors => {
       this.authors = authors;
+      this.createOrUpdate = true;
     })
   }
 
@@ -51,5 +54,9 @@ export class CreateBookComponent implements OnInit{
         this.router.navigate(['']);
       }
     });
+  }
+
+  editBook(){
+
   }
 }

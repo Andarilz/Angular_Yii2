@@ -17,7 +17,7 @@
           <input matInput placeholder="Страна" [(ngModel)]="author.country" name="country" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="number" placeholder="Год рождения" [(ngModel)]="author.birth_year" name="birth_year" required>
+          <input matInput placeholder="Год рождения" [(ngModel)]="author.birth_year" name="birth_year" required>
         </mat-form-field>
       </form>
     </mat-card-content>
@@ -33,10 +33,10 @@
       </ul>
     </div>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="createAuthor()" *ngIf="!author.id">Создать автора</button>
-<!--      <ng-template #editAuthorAdd>-->
-<!--        <button mat-raised-button color="primary" (click)="editAuthor">Редактировать автора</button>-->
-<!--      </ng-template>-->
+      <button mat-raised-button color="primary" (click)="createOrUpdateAuthor()" *ngIf="!author.id; else editAuthorAdd">Создать автора</button>
+      <ng-template #editAuthorAdd>
+        <button mat-raised-button color="primary" (click)="createOrUpdateAuthor()">Редактировать автора</button>
+      </ng-template>
     </mat-card-actions>
   </mat-card>
 </div>

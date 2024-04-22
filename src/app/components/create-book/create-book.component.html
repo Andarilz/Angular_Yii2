@@ -44,11 +44,12 @@
         </li>
       </ul>
     </div>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="createBook()" *ngIf="!book.id; else EditBookAdd">Создать книгу</button>
-      <ng-template #EditBookAdd>
-        <button mat-raised-button color="primary" (click)="createBook()">Редактировать книгу</button>
-      </ng-template>
-    </mat-card-actions>
+<!--    <mat-card-actions>-->
+<!--      &lt;!&ndash; Если нет идентификатора книги (книга еще не создана), вызываем метод createBook() &ndash;&gt;-->
+<!--      <button mat-raised-button color="primary" (click)="book.id ? editBook() : createBook()">-->
+<!--        {{ book.id ? 'Редактировать книгу' : 'Создать книгу' }}-->
+<!--      </button>-->
+<!--    </mat-card-actions>-->
+
   </mat-card>
 </div>

@@ -23,10 +23,18 @@ export class BooksListComponent implements OnInit{
   }
 
 
-  displayedColumns: string[] = ['title', 'author_name', 'language', 'pages', 'description', 'genre'];
+  displayedColumns: string[] = ['title', 'author_name', 'language', 'pages', 'description', 'genre', 'actions'];
 
   redirectToBookDetail(bookId: string) {
     this.router.navigate(['/book', bookId]);
+  }
+
+  editBook(book: Book){
+    this.router.navigate(['edit_book', book.id])
+  }
+
+  deleteBook(book: Book){
+    console.log(book.id)
   }
 
 }
