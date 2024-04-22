@@ -14,7 +14,7 @@ export class CreateAuthorComponent implements OnInit{
     name: '',
     country: '',
     birth_year: 0,
-    books: ''
+    books: []
   };
 
   constructor(public route: ActivatedRoute) {

@@ -17,9 +17,9 @@ export class AuthorsListComponent {
 
   //Данные для таблицы книг
   authors: Author[] = [
-    { id: 1, name: 'Author 1', books: 'Книга1', country: 'English', birth_year: 1990 },
-    { id: 1, name: 'Author 1', books: 'Книга2', country: 'English', birth_year: 1990 },
-    { id: 1, name: 'Author 1', books: 'Книга3', country: 'English', birth_year: 1990 },
+    { id: 1, name: 'Author 1', books: [{ id: 1, title: 'Book 1', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' }], country: 'English', birth_year: 1990 },
+    { id: 1, name: 'Author 1', books: [ { id: 1, title: 'Book 1', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' }], country: 'English', birth_year: 1990 },
+    { id: 1, name: 'Author 1', books: [ { id: 1, title: 'Book 1', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' }], country: 'English', birth_year: 1990 },
   ];
 
 

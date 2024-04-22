@@ -8,7 +8,10 @@ import {Author} from "../../Interfaces/Author";
   styleUrls: ['./author.component.scss']
 })
 export class AuthorComponent {
-  author: Author = { id: 1, name: 'Author 1', books:  'Book1', country: 'England', birth_year: 1900 };
+  author: Author = { id: 1, name: 'Author 1',
+    books: [{ id: 1, title: 'Book 1', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' },
+            { id: 1, title: 'Book 2', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' }]
+, country: 'England', birth_year: 1900 };
 
   constructor(public router: Router) { }
 

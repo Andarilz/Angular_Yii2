@@ -10,7 +10,7 @@ import {Book} from "../../Interfaces/Book";
 })
 export class BookComponent implements OnInit {
 
-  book: Book = { id: 1, title: 'Book 1', author: 'Author 1', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' };
+  book: Book = { id: 1, title: 'Book 1', author: {id: 1, name: "Test", country: 'bl', birth_year: 2014}, language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' };
 
   constructor(private router: Router) { }
 

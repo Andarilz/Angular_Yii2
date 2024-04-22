@@ -10,7 +10,7 @@
     <!-- Имя автора книги -->
     <ng-container matColumnDef="author">
       <th mat-header-cell *matHeaderCellDef> Автор </th>
-      <td mat-cell *matCellDef="let book"> {{ book.author }} </td>
+      <td mat-cell *matCellDef="let book"> {{ book.author.name }} </td>
     </ng-container>
 
     <!-- Язык книги -->
