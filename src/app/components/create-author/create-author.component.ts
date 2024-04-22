@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Book} from "../../Interfaces/Book";
 import {Author} from "../../Interfaces/Author";
 import {ActivatedRoute} from "@angular/router";
+import {ApiHttpService} from "../../api-http.service";
 
 @Component({
   selector: 'app-create-author',
@@ -13,11 +14,16 @@ export class CreateAuthorComponent implements OnInit{
     id: null,
     name: '',
     country: '',
-    birth_year: 0,
-    books: []
+    birth_year: 0
   };
 
-  constructor(public route: ActivatedRoute) {
+  errors: { [key: string]: string[] } = {};
+
+  constructor(public route: ActivatedRoute, public ApiHttpService: ApiHttpService) {
+  }
+
+  getErrorKeys() {
+    return Object.keys(this.errors);
   }
 
   ngOnInit(): void {
@@ -27,6 +33,16 @@ export class CreateAuthorComponent implements OnInit{
   }
 
   createAuthor() {
-    console.log(this.author);
+    this.ApiHttpService.createAuthor(this.author).subscribe(
+      (response) => {
+        if(response.errors){
+          this.errors = response.errors
+        }
+      }
+    );
+  }
+
+  editAuthor(){
+    console.log()
   }
 }

@@ -26,4 +26,8 @@ export class ApiHttpService {
   getAuthor(id: string): Observable<Author> {
     return this.http.get<Author>(`http://localhost:8080/authors/${id}`);
   }
+
+  createAuthor(author: Author): Observable<any>{
+    return this.http.post('http://localhost:8080/authors', author);
+  }
 }

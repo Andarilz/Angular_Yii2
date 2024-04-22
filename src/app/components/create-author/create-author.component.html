@@ -11,24 +11,32 @@
     <mat-card-content>
       <form>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Имя автора" [(ngModel)]="author.name" name="title" required>
+          <input matInput placeholder="Имя автора" [(ngModel)]="author.name" name="name" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Книги" [(ngModel)]="author.books" name="author" required>
+          <input matInput placeholder="Страна" [(ngModel)]="author.country" name="country" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Страна" [(ngModel)]="author.country" name="language" required>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput type="number" placeholder="Год рождения" [(ngModel)]="author.birth_year" name="pages" required>
+          <input matInput type="number" placeholder="Год рождения" [(ngModel)]="author.birth_year" name="birth_year" required>
         </mat-form-field>
       </form>
     </mat-card-content>
+    <div *ngIf="errors">
+      <ul>
+        <!-- Перебираем ключи (поля) массива ошибок -->
+        <li *ngFor="let field of getErrorKeys()">
+            <!-- Перебираем сообщения об ошибках для каждого поля -->
+            <p *ngFor="let message of errors[field]" style="color: red">
+              {{ message }}
+            </p>
+        </li>
+      </ul>
+    </div>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="createAuthor()" *ngIf="!author.id; else editAuthorAdd">Создать автора</button>
-      <ng-template #editAuthorAdd>
-        <button mat-raised-button color="primary" (click)="createAuthor()">Редактировать автора</button>
-      </ng-template>
+      <button mat-raised-button color="primary" (click)="createAuthor()" *ngIf="!author.id">Создать автора</button>
+<!--      <ng-template #editAuthorAdd>-->
+<!--        <button mat-raised-button color="primary" (click)="editAuthor">Редактировать автора</button>-->
+<!--      </ng-template>-->
     </mat-card-actions>
   </mat-card>
 </div>
