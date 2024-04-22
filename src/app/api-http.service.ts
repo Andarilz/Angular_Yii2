@@ -22,4 +22,8 @@ export class ApiHttpService {
   getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>('http://localhost:8080/authors');
   }
+
+  getAuthor(id: string): Observable<Author> {
+    return this.http.get<Author>(`http://localhost:8080/authors/${id}`);
+  }
 }

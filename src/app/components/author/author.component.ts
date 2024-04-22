@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Author} from "../../Interfaces/Author";
+import {ApiHttpService} from "../../api-http.service";
 
 @Component({
   selector: 'app-author',
@@ -8,14 +9,19 @@ import {Author} from "../../Interfaces/Author";
   styleUrls: ['./author.component.scss']
 })
 export class AuthorComponent {
-  author: Author = { id: 1, name: 'Author 1',
-    books: [{ id: 1, title: 'Book 1', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' },
-            { id: 1, title: 'Book 2', language: 'English', pages: 200, description: 'Description 1', genre: 'comedy' }]
-, country: 'England', birth_year: 1900 };
+  author: Author = { id: null, name: '', country: '', birth_year: 0 };
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public route: ActivatedRoute, public ApiHtmlService: ApiHttpService) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if(id !== null){
+        this.ApiHtmlService.getAuthor(id).subscribe(author => {
+          this.author = author;
+        });
+      }
+    })
   }
 
   // Метод редактирования книги
