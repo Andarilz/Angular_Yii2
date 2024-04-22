@@ -15,17 +15,21 @@ export class BooksListComponent implements OnInit{
   constructor(private router: Router, public apiService: ApiHttpService) {}
 
   books: Book[] = [];
+  filterValue = '';
 
   ngOnInit(): void {
     this.getBooks()
   }
 
   getBooks(){
-    this.apiService.getBooks().subscribe(books => {
+    this.apiService.getBooks(this.filterValue).subscribe(books => {
       this.books = books;
     });
   }
 
+  applyFilter(){
+    this.getBooks()
+  }
 
   displayedColumns: string[] = ['title', 'author_name', 'language', 'pages', 'description', 'genre', 'actions'];
 

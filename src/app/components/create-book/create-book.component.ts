@@ -15,7 +15,7 @@ export class CreateBookComponent implements OnInit{
     author_id: null,
     title: '',
     language: '',
-    pages: 10,
+    pages: null,
     description: '',
     genre: ''
   };

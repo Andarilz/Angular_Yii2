@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from "./Interfaces/Book";
 import {Author} from "./Interfaces/Author";
@@ -11,8 +11,9 @@ export class ApiHttpService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<Book[]> {
-   return this.http.get<Book[]>('http://localhost:8080/books');
+  getBooks(search: string): Observable<Book[]> {
+    let params = new HttpParams().set('search', search);
+    return this.http.get<Book[]>('http://localhost:8080/books', { params: params });
   }
 
   getBook(id: string): Observable<Book> {

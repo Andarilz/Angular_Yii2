@@ -8,7 +8,7 @@ export interface Book {
   author_id?: number | null,
   author?: Author
   language: string;
-  pages: number;
+  pages: number | null;
   description: string;
   genre: string;
 }
