@@ -38,4 +38,8 @@ export class ApiHttpService {
   updateAuthor(author: Author): Observable<any>{
     return this.http.put(`http://localhost:8080/authors/${author.id}`, author);
   }
+
+  updateBook(book: Book): Observable<any>{
+    return this.http.put(`http://localhost:8080/books/${book.id}`, book);
+  }
 }

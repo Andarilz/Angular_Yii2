@@ -26,7 +26,7 @@
           <input matInput type="number" placeholder="Число страниц" [(ngModel)]="book.pages" name="pages" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Жанр" [(ngModel)]="book.genre" name="pages" required>
+          <input matInput type="text" placeholder="Жанр" [(ngModel)]="book.genre" name="genre" required>
         </mat-form-field>
         <mat-form-field class="full-width">
           <textarea matInput placeholder="Описание" [(ngModel)]="book.description" name="description" required></textarea>
@@ -44,12 +44,11 @@
         </li>
       </ul>
     </div>
-<!--    <mat-card-actions>-->
-<!--      &lt;!&ndash; Если нет идентификатора книги (книга еще не создана), вызываем метод createBook() &ndash;&gt;-->
-<!--      <button mat-raised-button color="primary" (click)="book.id ? editBook() : createBook()">-->
-<!--        {{ book.id ? 'Редактировать книгу' : 'Создать книгу' }}-->
-<!--      </button>-->
-<!--    </mat-card-actions>-->
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="createOrUpdateBook()">
+        {{ book.id ? 'Редактировать книгу' : 'Создать книгу' }}
+      </button>
+    </mat-card-actions>
 
   </mat-card>
 </div>
