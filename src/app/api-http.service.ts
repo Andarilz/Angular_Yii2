@@ -11,8 +11,31 @@ export class ApiHttpService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(search: string): Observable<Book[]> {
-    let params = new HttpParams().set('search', search);
+  getBooks(search: string = '', authors: number[] = [], language: string[] = [], genre: string = '', minPages: number | null = null, maxPages: number | null = null ): Observable<Book[]> {
+    let params = new HttpParams()
+      .set('search', search || '')
+      // .set('authors', authors.join(','))
+      // .set('language', language)
+      .set('genre', genre || '')
+    // Проверяем наличие minPages и добавляем их в параметры запроса, если они существуют
+    if (minPages !== null) {
+      params = params.set('min', minPages.toString());
+    }
+
+    // Проверяем наличие maxPages и добавляем их в параметры запроса, если они существуют
+    if (maxPages !== null) {
+      params = params.set('max', maxPages.toString());
+    }
+
+
+    authors.forEach((author, index) => {
+      params = params.append(`authors[${index}]`, author.toString());
+    });
+
+    language.forEach((language, index) => {
+      params = params.append(`languages[${index}]`, language.toString());
+    });
+
     return this.http.get<Book[]>('http://localhost:8080/books', { params: params });
   }
 
@@ -51,4 +74,9 @@ export class ApiHttpService {
   getLanguage(): Observable<any>{
     return this.http.get(`http://localhost:8080/books/language`);
   }
+
+  getGenre(): Observable<any>{
+    return this.http.get(`http://localhost:8080/books/genre`);
+  }
+
 }

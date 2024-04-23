@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput placeholder="Поиск по названию или описанию" [(ngModel)]="search">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Фильтр по автору</mat-label>
+      <mat-select [(value)]="selectedAuthors" multiple>
+        <mat-option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Фильтр по языку</mat-label>
+      <mat-select [(value)]="selectedLanguages" multiple>
+        <mat-option *ngFor="let language of languages" [value]="language.language">{{ language.language }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Мin страница" [(ngModel)]="minPages">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Max страница" [(ngModel)]="maxPages">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Фильтр по жанру</mat-label>
+      <mat-select [(value)]="selectedGenre">
+        <mat-option *ngFor="let genre of genres" [value]="genre.genre">{{ genre.genre }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="applyFilters()">Применить</button>
+  </mat-card-content>
+</mat-card>

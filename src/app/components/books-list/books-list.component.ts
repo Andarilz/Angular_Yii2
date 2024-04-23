@@ -21,15 +21,19 @@ export class BooksListComponent implements OnInit{
     this.getBooks()
   }
 
+  onBookListChanged(books: Book[]) {
+    this.books = books;
+  }
+
   getBooks(){
     this.apiService.getBooks(this.filterValue).subscribe(books => {
       this.books = books;
     });
   }
-
-  applyFilter(){
-    this.getBooks()
-  }
+  //
+  // applyFilter(){
+  //   this.getBooks()
+  // }
 
   displayedColumns: string[] = ['title', 'author_name', 'language', 'pages', 'description', 'genre', 'actions'];
 
@@ -48,7 +52,7 @@ export class BooksListComponent implements OnInit{
   }
 
   redirectToAuthorDetail(authorId: string){
-    this.router.navigate(['edit_author', authorId])
+    this.router.navigate(['/author', authorId])
   }
 
 }

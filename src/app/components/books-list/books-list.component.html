@@ -1,9 +1,12 @@
-<div class="filter-container">
-  <mat-form-field>
-    <input matInput placeholder="Фильтр" [(ngModel)]="filterValue" (keydown.enter)="applyFilter()">
-  </mat-form-field>
-  <button mat-button (click)="applyFilter()">Применить</button>
-</div>
+<!--<div class="filter-container">-->
+<!--  <mat-form-field>-->
+<!--    <input matInput placeholder="Фильтр" [(ngModel)]="filterValue" (keydown.enter)="applyFilter()">-->
+<!--  </mat-form-field>-->
+<!--  <button mat-button (click)="applyFilter()">Применить</button>-->
+<!--</div>-->
+
+<app-filter (bookListChanged)="onBookListChanged($event)"></app-filter>
+
 
 <div class="example-container mat-elevation-z8">
   <table mat-table [dataSource]="books">
@@ -16,7 +19,7 @@
     <!-- Имя автора книги -->
     <ng-container matColumnDef="author_name">
       <th mat-header-cell *matHeaderCellDef> Автор </th>
-      <td mat-cell *matCellDef="let book" (click)="redirectToAuthorDetail(book.author_id)" class="title"> {{ book.author_name }} </td>
+      <td mat-cell *matCellDef="let book" (click)="redirectToAuthorDetail(book.author.id)" class="title"> {{ book.author.name }} </td>
     </ng-container>
 
     <!-- Язык книги -->

@@ -21,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { MatSelectModule } from '@angular/material/select';
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {NoopAnimationPlayer} from "@angular/animations";
+import { FilterComponent } from './components/filter/filter.component';
 
 
 
@@ -33,7 +34,8 @@ import {NoopAnimationPlayer} from "@angular/animations";
     AuthorComponent,
     NavComponent,
     CreateBookComponent,
-    CreateAuthorComponent
+    CreateAuthorComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
