@@ -4,6 +4,7 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 import {ApiHttpService} from "../../api-http.service";
 import {Author} from "../../Interfaces/Author";
 import {Language} from "../../Interfaces/Language";
+import {Genre} from "../../Interfaces/Genre";
 
 @Component({
   selector: 'app-create-book',
@@ -25,11 +26,15 @@ export class CreateBookComponent implements OnInit{
 
   language: Language[] = [];
 
+  genres: Genre[] = [];
+
   errors: { [key: string]: string[] } = {};
 
   selectedAuthorId: number | null = null;
 
   selectedLanguage: string | null = null;
+
+  selectedGenre: string| null = null;
 
   createOrUpdateFlag: boolean = false;
 
@@ -45,6 +50,11 @@ export class CreateBookComponent implements OnInit{
         this.ApiHttpService.getBook(bookId).subscribe(book => {
           this.book = book;
           this.createOrUpdateFlag = true;
+          if(this.book){
+            this.selectedLanguage = this.book.language
+            this.selectedAuthorId = this.book.author_id
+            this.selectedGenre = this.book.genre
+          }
           if(this.book.author !== undefined){
             this.selectedAuthorId = this.book.author.id
           }
@@ -54,9 +64,11 @@ export class CreateBookComponent implements OnInit{
     this.ApiHttpService.getAuthors().subscribe(authors => {
       this.authors = authors;
     })
-    this.ApiHttpService.getLanguage().subscribe(language => {
-      this.language = language;
-      console.log('lang', this.language)
+    this.ApiHttpService.getLanguage().subscribe(languages => {
+      this.language = languages;
+    })
+    this.ApiHttpService.getGenre().subscribe(genres => {
+      this.genres = genres;
     })
   }
 

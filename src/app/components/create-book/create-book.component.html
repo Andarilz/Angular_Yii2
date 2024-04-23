@@ -27,7 +27,10 @@
           <input matInput type="number" placeholder="Число страниц" [(ngModel)]="book.pages" name="pages" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Жанр" [(ngModel)]="book.genre" name="genre" required>
+<!--          <input matInput type="text" placeholder="Жанр" [(ngModel)]="book.genre" name="genre" required>-->
+          <mat-select [(ngModel)]="selectedGenre" name="genre" placeholder="Жанр">
+            <mat-option *ngFor="let genre of genres" [value]="genre.genre">{{ genre.genre }}</mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="full-width">
           <textarea matInput placeholder="Описание" rows="1" [(ngModel)]="book.description" name="description" required style="min-height: 30px;"></textarea>

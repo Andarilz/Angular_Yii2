@@ -11,7 +11,7 @@ import {ApiHttpService} from "../../api-http.service";
 })
 export class BookComponent implements OnInit {
 
-  book: Book = { id: null, title: '', author_name: '', language: '', pages: 0, description: '', genre: '' };
+  book: Book = { id: null, title: '', author_name: '', language: '', pages: 0, description: '', genre: '', author_id: null };
 
   constructor(private router: Router, public ApiHttpService: ApiHttpService, public route: ActivatedRoute) { }
 
