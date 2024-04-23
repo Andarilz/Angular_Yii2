@@ -33,7 +33,7 @@ export class AuthorsListComponent implements OnInit{
   // ];
 
 
-  displayedColumns: string[] = ['name', 'country', 'borth_year', 'actions'];
+  displayedColumns: string[] = ['name', 'country', 'birth_year', 'actions', 'books'];
 
   redirectToAuthorDetail(authorId: string) {
     this.router.navigate(['/author', authorId]);

@@ -10,15 +10,14 @@
     <mat-card-content>
       <form>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Название книги" [(ngModel)]="book.title" name="title" required>
-        </mat-form-field>
-        <mat-form-field class="full-width">
           <mat-label>Выберите автора</mat-label>
           <mat-select [(ngModel)]="selectedAuthorId" name="authorId">
             <mat-option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</mat-option>
           </mat-select>
         </mat-form-field>
-
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Название книги" [(ngModel)]="book.title" name="title" required>
+        </mat-form-field>
         <mat-form-field class="full-width">
           <input matInput placeholder="Язык" [(ngModel)]="book.language" name="language" required>
         </mat-form-field>
@@ -29,7 +28,7 @@
           <input matInput type="text" placeholder="Жанр" [(ngModel)]="book.genre" name="genre" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <textarea matInput placeholder="Описание" [(ngModel)]="book.description" name="description" required></textarea>
+          <input matInput placeholder="Описание" [(ngModel)]="book.description" name="description" required>
         </mat-form-field>
       </form>
     </mat-card-content>

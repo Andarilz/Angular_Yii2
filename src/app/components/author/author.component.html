@@ -1,14 +1,16 @@
 <div *ngIf="author">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>{{ author.name }}</mat-card-title>
+      <mat-card-title><b>Имя:</b>{{ author.name }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p><strong>Год рождения:</strong> {{ author.birth_year }}</p>
       <p><strong>Страна:</strong> {{ author.country }}</p>
       <div><strong>Книги:</strong>
         <ul>
-          <li *ngFor="let book of author.books">{{book.title}}</li>
+          <li *ngFor="let book of author.books">
+            <a [routerLink]="['/book', book.id]">{{book.title}}</a>
+          </li>
         </ul>
       </div>
     </mat-card-content>

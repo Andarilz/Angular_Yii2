@@ -47,5 +47,9 @@ export class BooksListComponent implements OnInit{
     });
   }
 
+  redirectToAuthorDetail(authorId: string){
+    this.router.navigate(['edit_author', authorId])
+  }
+
 }
 
