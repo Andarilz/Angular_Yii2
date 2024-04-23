@@ -10,5 +10,5 @@ export interface Book {
   language: string | null;
   pages: number | null;
   description: string;
-  genre: string;
+  genre: string | null;
 }

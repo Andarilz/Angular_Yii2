@@ -30,10 +30,6 @@ export class BooksListComponent implements OnInit{
       this.books = books;
     });
   }
-  //
-  // applyFilter(){
-  //   this.getBooks()
-  // }
 
   displayedColumns: string[] = ['title', 'author_name', 'language', 'pages', 'description', 'genre', 'actions'];
 

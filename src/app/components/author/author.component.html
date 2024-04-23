@@ -6,13 +6,6 @@
     <mat-card-content>
       <p><strong>Год рождения:</strong> {{ author.birth_year }}</p>
       <p><strong>Страна:</strong> {{ author.country }}</p>
-      <div><strong>Книги:</strong>
-        <ul>
-          <li *ngFor="let book of author.books">
-            <a [routerLink]="['/book', book.id]">{{book.title}}</a>
-          </li>
-        </ul>
-      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button color="primary" (click)="editAuthor(author)">Редактировать</button>

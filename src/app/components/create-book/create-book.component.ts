@@ -77,7 +77,7 @@ export class CreateBookComponent implements OnInit{
   }
 
   createBook(){
-    this.ApiHttpService.createBook({...this.book, author_id: this.selectedAuthorId, language: this.selectedLanguage}).subscribe(response => {
+    this.ApiHttpService.createBook({...this.book, author_id: this.selectedAuthorId, language: this.selectedLanguage, genre: this.selectedGenre }).subscribe(response => {
       if(response.errors){
         this.errors = response.errors
       } else {
@@ -87,7 +87,7 @@ export class CreateBookComponent implements OnInit{
   }
 
   updateBook(){
-    this.ApiHttpService.updateBook({...this.book, author_id: this.selectedAuthorId}).subscribe(response => {
+    this.ApiHttpService.updateBook({...this.book, author_id: this.selectedAuthorId, language: this.selectedLanguage, genre: this.selectedGenre}).subscribe(response => {
       if(response.errors){
         this.errors = response.errors
       } else {
