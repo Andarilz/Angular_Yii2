@@ -47,4 +47,8 @@ export class ApiHttpService {
   deleteBook(book: Book): Observable<any>{
     return this.http.delete(`http://localhost:8080/books/${book.id}`);
   }
+
+  getLanguage(): Observable<any>{
+    return this.http.get(`http://localhost:8080/books/language`);
+  }
 }

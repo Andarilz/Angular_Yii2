@@ -7,7 +7,7 @@ export interface Book {
   author_name?: '';
   author_id?: number | null,
   author?: Author
-  language: string;
+  language: string | null;
   pages: number | null;
   description: string;
   genre: string;

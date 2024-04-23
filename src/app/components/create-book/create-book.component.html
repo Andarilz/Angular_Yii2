@@ -18,8 +18,10 @@
         <mat-form-field class="full-width">
           <input matInput placeholder="Название книги" [(ngModel)]="book.title" name="title" required>
         </mat-form-field>
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Язык" [(ngModel)]="book.language" name="language" required>
+        <mat-form-field>
+          <mat-select [(ngModel)]="selectedLanguage" name="language" placeholder="Язык">
+            <mat-option *ngFor="let lang of language" [value]="lang.language">{{ lang.language }}</mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="full-width">
           <input matInput type="number" placeholder="Число страниц" [(ngModel)]="book.pages" name="pages" required>
@@ -28,7 +30,7 @@
           <input matInput type="text" placeholder="Жанр" [(ngModel)]="book.genre" name="genre" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Описание" [(ngModel)]="book.description" name="description" required>
+          <textarea matInput placeholder="Описание" rows="1" [(ngModel)]="book.description" name="description" required style="min-height: 30px;"></textarea>
         </mat-form-field>
       </form>
     </mat-card-content>

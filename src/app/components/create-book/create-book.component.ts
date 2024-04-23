@@ -3,6 +3,7 @@ import {Book} from "../../Interfaces/Book";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {ApiHttpService} from "../../api-http.service";
 import {Author} from "../../Interfaces/Author";
+import {Language} from "../../Interfaces/Language";
 
 @Component({
   selector: 'app-create-book',
@@ -22,9 +23,13 @@ export class CreateBookComponent implements OnInit{
 
   authors: Author[] = [];
 
+  language: Language[] = [];
+
   errors: { [key: string]: string[] } = {};
 
   selectedAuthorId: number | null = null;
+
+  selectedLanguage: string | null = null;
 
   createOrUpdateFlag: boolean = false;
 
@@ -43,12 +48,15 @@ export class CreateBookComponent implements OnInit{
           if(this.book.author !== undefined){
             this.selectedAuthorId = this.book.author.id
           }
-          console.log(this.book, 'authors id')
         });
       }
     });
     this.ApiHttpService.getAuthors().subscribe(authors => {
       this.authors = authors;
+    })
+    this.ApiHttpService.getLanguage().subscribe(language => {
+      this.language = language;
+      console.log('lang', this.language)
     })
   }
 
@@ -57,7 +65,7 @@ export class CreateBookComponent implements OnInit{
   }
 
   createBook(){
-    this.ApiHttpService.createBook({...this.book, author_id: this.selectedAuthorId}).subscribe(response => {
+    this.ApiHttpService.createBook({...this.book, author_id: this.selectedAuthorId, language: this.selectedLanguage}).subscribe(response => {
       if(response.errors){
         this.errors = response.errors
       } else {
